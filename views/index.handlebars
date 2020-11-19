@@ -1,38 +1,4 @@
-<section class="header">
-  <img id="logo" src="/assets/images/burger-logo.svg" alt="eat da burger logo">
-</section>
-<section class="hero">
-  <h1>Place Your Order</h1>
-  <form class="burger-form">
-    <label for="burgerField">Burger Name:</label>
-    <input type="text" id="burgerField" name="burgerField">
-    <button type="submit">
-      <div class='insider'></div>
-      Order
-    </button>
-  </form>
-</section>
-<section id="burgerList">
-  <article>
-    <h2>Burger Hit List</h2>
-
-    <ul>
-      {{#each burgers}}
-      {{#unless devoured}}
-      {{> burgers/burger-block}}
-      {{/unless}}
-      {{/each}}
-    </ul>
-  </article>
-  <article id="devouredList">
-    <h2>Crimes Committed Against Burgers</h2>
-
-    <ul>
-      {{#each burgers}}
-      {{#if devoured}}
-      {{> burgers/devoured-block}}
-      {{/if}}
-      {{/each}}
-    </ul>
-  </article>
-</section>
+<ul id="messages"></ul>
+<form action="">
+  <input id="m" autocomplete="off" /><button>Send</button>
+</form>
