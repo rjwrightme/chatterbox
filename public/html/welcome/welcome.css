@@ -1,0 +1,64 @@
+form {
+    border: 3px solid #f1f1f1;
+    display: inline-block;
+
+  }
+
+  body {
+    text-align: center;
+}
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 50%;
+    padding: 20px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 12px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 30%;
+    border-radius: 25%;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+  
+
+  h1 {
+    font-size:  5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 350;
+    line-height: 1.2;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: midnightblue;
+}
+
+/*change this text colour*/
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+  }
+
+.navbar-nav > li{
+    margin-left:10px;
+    margin-right:10px;
+  }
