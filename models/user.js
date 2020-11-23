@@ -15,6 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         isonline: DataTypes.BOOLEAN,
+        avatar: DataTypes.VARCHAR
     });
 
     User.associate = function (models) {
