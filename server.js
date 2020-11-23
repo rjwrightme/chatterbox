@@ -35,10 +35,10 @@ require("./routes/user-api-routes.js")(app);
 
 
 io.on("connection", (socket) => {
-  console.log("a new user connected")
-  socket.on('public_chat', () => {
-    socket.emit('message', "welcome new user");
-  })
+  console.log("a new user connected");
+  socket.on("public_chat", () => {
+    socket.emit("message", "welcome new user");
+  });
 });
 
 
