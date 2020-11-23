@@ -1,45 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 html {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 h1 {
-    font-size:  5rem;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-weight: 350;
-    line-height: 1.2;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(57, 115, 172);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: rgb(57, 115, 172);
 }
 
 p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.15rem;
-  }
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+}
+
+.heroDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#heroImage {
+  width: 100%;
+  max-width: 550px;
+}
+
+.navbar {
+  padding: 16px;
+  margin-bottom: 15px;
+}
 
 .img {
-    vertical-align: middle;
-    border-style: none;
-    margin-top: 100px;
-  }
+  vertical-align: middle;
+  border-style: none;
+}
 
-  nav {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: lighter;
-  }
+.navbar-nav>li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
-  .navbar-nav > li{
-    margin-left:10px;
-    margin-right:10px;
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  h1 {
+    font-size: 3em;
   }
+}
 
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  h1 {
+    font-size: 4em;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 5em;
+  }
+}
