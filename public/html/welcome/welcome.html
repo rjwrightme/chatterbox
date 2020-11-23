@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <title>Welcome</title>
+    <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../welcome/welcome.css">
+</head>
+
+
+<nav class="navbar navbar-expand-md navbar-light bg-white">
+    <a class="navbar-brand" href="#">
+        <img src="../assets/logo.png" alt="" width="200">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary rounded-pill">LOG IN</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-primary rounded-pill">SIGN UP</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<form action="action_page.php" method="post">
+    <div class="heading">
+        <h1 class="mb-4 primary">Welcome!</h1>
+        <p>Some other words that I can't read cause my computer hates me</p>
+    </div>
+    <div class="imgcontainer">
+        <img src="img/avatar01.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <input type="text" placeholder="Username" name="uname" required>
+
+        <input type="password" placeholder="Password" name="psw" required>
+        <br></br>
+        <button class="btn btn-primary rounded-pill">Login</button>
+
+
+    </div>
+
+</form>
+
+</html>
