@@ -118,10 +118,3 @@ p {
     font-size: 4em;
   }
 }
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 5em;
-  }
-}
