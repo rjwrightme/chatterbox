@@ -21,6 +21,8 @@ module.exports = function (app) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.User
+
+    // *** UPDATE TO INCLUDE LIMIT OF 20 CHATS ***
     db.Chat.findAll({
       where: query,
       include: [db.User]
@@ -30,19 +32,19 @@ module.exports = function (app) {
   });
 
   // Get route for retrieving a single post
-  app.get("/api/chats/:id", function (req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Chat.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.User]
-    }).then(function (dbChat) {
-      res.json(dbChat);
-    });
-  });
+  // app.get("/api/chats/:id", function (req, res) {
+  //   // Here we add an "include" property to our options in our findOne query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.Author
+  //   db.Chat.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //     include: [db.User]
+  //   }).then(function (dbChat) {
+  //     res.json(dbChat);
+  //   });
+  // });
 
   // POST route for saving a new post
   app.post("/api/chats", function (req, res) {
@@ -74,4 +76,5 @@ module.exports = function (app) {
       res.json(dbChat);
     });
   });
+
 };
