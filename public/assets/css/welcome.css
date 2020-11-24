@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #10105B;
+}
+
+.btn-main {
+  background: #27AFEC;
+  color: #fff;
+  border: none;
+}
+
+.btn-main:hover {
+  color: #fff;
+  background-color: #3777BA;
+  opacity: 1;
+}
+
+#signupForm {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.12);
+  max-width: 420px;
+  background: #fff;
+  margin: 40px auto 0;
+  padding: 35px;
+}
+
+#signupForm .btn-main {
+  padding: 10px 30px;
+  margin-top: 15px;
+}
+
+body {
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+/* Full-width inputs */
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 7px 20px;
+  border: 1px solid #cccccc;
+  margin-bottom: 10px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 12px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  color: midnightblue;
+}
+
+/*change this text colour*/
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  color: #999696;
+}
+
+.navbar-nav>li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  h1 {
+    font-size: 3em;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  h1 {
+    font-size: 4em;
+  }
+}

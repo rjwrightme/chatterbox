@@ -1,6 +1,4 @@
-const app = require("express");
-
-const chat = require("../models/chat");
+// const chat = require("../models/chat");
 
 
 module.exports = function (app) {
@@ -15,7 +13,7 @@ module.exports = function (app) {
 
     var username = req.query.username;
     var messages = req.query.messages;
-    console.log(username, "is logging in")
+    console.log(username, "is logging in");
     var hbsObject = {
       username: username,
       messages: messages,

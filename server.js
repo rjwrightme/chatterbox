@@ -43,7 +43,6 @@ require("./routes/chat-api-routes.js")(app);
 require("./routes/login-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
-
 // Run when client connects
 io.on('connection', socket => {
   console.log("NEW CONNECTION")
@@ -67,6 +66,13 @@ io.on('connection', socket => {
     io.to(user.room).emit('roomUsers', {
       room: user.room,
       users: getRoomUsers(user.room)
+
+    // Listen for chatMessage
+    socket.on('chatMessage', msg => {
+      const user = getCurrentUser(socket.id);
+
+      io.to(user.room).emit('message', formatMessage(user.username, msg));
+
     });
   });
 
