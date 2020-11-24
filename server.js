@@ -1,5 +1,5 @@
 const express = require("express");
-const app = require("express")();
+const app = express();
 const http = require("http");
 const PORT = process.env.PORT || 3600;
 const session = require("express-session");
@@ -26,6 +26,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Requiring our routes
+const htmlRouter = require("./routes/html-routes.js");
+// require("./routes/chat-api-routes.js")(app);
+// require("./routes/login-routes.js")(app);
+// require("./routes/user-api-routes.js")(app);
+
+app.use(htmlRouter);
+
 app.use(express.static("public"));
 
 
@@ -46,11 +54,6 @@ app.set("view engine", "handlebars");
 
 require("./controllers/chat_controller.js")(app);
 
-// Requiring our routes
-require("./routes/html-routes.js");
-require("./routes/chat-api-routes.js")(app);
-require("./routes/login-routes.js")(app);
-require("./routes/user-api-routes.js")(app);
 
 // Run when client connects
 io.on("connection", socket => {
