@@ -28,7 +28,7 @@ app.set("view engine", "handlebars");
 require("./controllers/chat_controller.js")(app);
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
+require("./routes/html-routes.js");
 require("./routes/chat-api-routes.js")(app);
 require("./routes/login-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
