@@ -20,6 +20,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+var chatterbox = "Chatterbox";
 
 var exphbs = require("express-handlebars");
 
@@ -36,13 +37,36 @@ require("./routes/login-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
 
-io.on("connection", (socket) => {
-  console.log("a new user connected")
-  socket.on('public_chat', () => {
-    socket.emit('message', "welcome new user");
-  })
-});
+// Run when client connects
+io.on('connection', socket => {
+  console.log("NEW CONNECTION")
+  socket.on('joinRoom', ({ username, room }) => {
+    const user = userJoin(socket.id, username, room);
 
+    socket.join(user.room);
+
+    // Welcome current user
+    socket.emit('message', formatMessage(chatterbox, 'Welcome to Chatterbox!'));
+
+    // Broadcast when a user connects
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        'message',
+        formatMessage(chatterbox, `${user.username} has joined the chat`)
+      );
+
+
+    // Listen for chatMessage
+    socket.on('chatMessage', msg => {
+      const user = getCurrentUser(socket.id);
+
+      io.to(user.room).emit('message', formatMessage(user.username, msg));
+    });
+
+  });
+
+});
 
 server.listen(port, function () {
   console.log("listen to" + port);
