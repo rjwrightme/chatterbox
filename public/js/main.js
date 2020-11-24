@@ -60,6 +60,23 @@ chatForm.addEventListener("submit", e => {
   // Emit message to server
   socket.emit("chatMessage", msg);
 
+    // Clear input
+    e.target.elements.msg.value = '';
+    e.target.elements.msg.focus();
 });
 
 
+// Add room name to DOM
+function outputRoomName(room) {
+    roomName.innerText = room;
+}
+
+// Add users to DOM
+function outputUsers(users) {
+    userList.innerHTML = '';
+    users.forEach(user => {
+        const li = document.createElement('li');
+        li.innerText = user.username;
+        userList.appendChild(li);
+    });
+}
