@@ -2,6 +2,8 @@ var express = require("express");
 var app = require("express")();
 var http = require("http");
 var port = process.env.PORT || 3600;
+var session = require("express-session");
+var passport = require("./config/passport");
 
 
 var server = http.createServer(app);
