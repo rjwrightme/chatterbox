@@ -5,6 +5,13 @@ var port = process.env.PORT || 3600;
 var session = require("express-session");
 var passport = require("./config/passport");
 
+const formatMessage = require('./utils/messages');
+const {
+  userJoin,
+  getCurrentUser,
+  userLeave,
+  getRoomUsers
+} = require('./utils/users');
 
 var server = http.createServer(app);
 var io = require("socket.io")(server);
@@ -56,16 +63,37 @@ io.on('connection', socket => {
         formatMessage(chatterbox, `${user.username} has joined the chat`)
       );
 
-
-    // Listen for chatMessage
-    socket.on('chatMessage', msg => {
-      const user = getCurrentUser(socket.id);
-
-      io.to(user.room).emit('message', formatMessage(user.username, msg));
+    // Send users and room info
+    io.to(user.room).emit('roomUsers', {
+      room: user.room,
+      users: getRoomUsers(user.room)
     });
-
   });
 
+  // Listen for chatMessage
+  socket.on('chatMessage', msg => {
+    const user = getCurrentUser(socket.id);
+
+    io.to(user.room).emit('message', formatMessage(user.username, msg));
+  });
+
+  // Runs when client disconnects
+  socket.on('disconnect', () => {
+    const user = userLeave(socket.id);
+
+    if (user) {
+      io.to(user.room).emit(
+        'message',
+        formatMessage(chatterbox, `${user.username} has left the chat`)
+      );
+
+      // Send users and room info
+      io.to(user.room).emit('roomUsers', {
+        room: user.room,
+        users: getRoomUsers(user.room)
+      });
+    }
+  });
 });
 
 server.listen(port, function () {
