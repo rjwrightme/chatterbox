@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "test": "eslint --quiet .",
+    "start": "nodemon server.js",
+    "lint": "eslint --fix ."
   },
   "repository": {
     "type": "git",

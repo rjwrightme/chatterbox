@@ -36,7 +36,6 @@ require("./routes/chat-api-routes.js")(app);
 require("./routes/login-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
-
 // Run when client connects
 io.on('connection', socket => {
   console.log("NEW CONNECTION")
@@ -55,7 +54,6 @@ io.on('connection', socket => {
         'message',
         formatMessage(chatterbox, `${user.username} has joined the chat`)
       );
-
 
     // Listen for chatMessage
     socket.on('chatMessage', msg => {

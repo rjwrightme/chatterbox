@@ -1,16 +1,30 @@
 module.exports = function (sequelize, DataTypes) {
-    var User = sequelize.define("User", {
+  var User = sequelize.define("User", {
 
-        name: DataTypes.STRING
+    name: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    isonline: DataTypes.BOOLEAN,
+    avatar: DataTypes.VARCHAR
+  });
+
+  User.associate = function (models) {
+    // Associating User with Chats
+    // When a User is deleted, also delete any associated Chats
+    User.hasMany(models.Chat, {
+      onDelete: "cascade"
     });
+  };
 
-    User.associate = function (models) {
-        // Associating User with Chats
-        // When a User is deleted, also delete any associated Chats
-        User.hasMany(models.Chat, {
-            onDelete: "cascade"
-        });
-    };
-
-    return User;
+  return User;
 };

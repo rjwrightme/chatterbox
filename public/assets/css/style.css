@@ -17,7 +17,7 @@ h1 {
   margin-bottom: 0.5rem;
   line-height: 1.2;
   font-weight: 500;
-  color: rgb(57, 115, 172);
+  color: #10105B;
 }
 
 p {
@@ -34,6 +34,18 @@ p {
 #heroImage {
   width: 100%;
   max-width: 550px;
+}
+
+.btn-main {
+  background: #27AFEC;
+  color: #fff;
+  border: none;
+}
+
+.btn-main:hover {
+  color: #fff;
+  background-color: #3777BA;
+  opacity: 1;
 }
 
 .navbar {
