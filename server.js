@@ -1,13 +1,13 @@
-var express = require("express");
-var app = require("express")();
-var http = require("http");
-var port = process.env.PORT || 3600;
-var session = require("express-session");
-var passport = require("./config/passport");
+const express = require("express");
+const app = require("express")();
+const http = require("http");
+const PORT = process.env.PORT || 3600;
+const session = require("express-session");
+const passport = require("./config/passport");
+const db = require("./models");
 
-
-var server = http.createServer(app);
-var io = require("socket.io")(server);
+const server = http.createServer(app);
+const io = require("socket.io")(server);
 
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
@@ -37,38 +37,38 @@ require("./routes/login-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
 // Run when client connects
-io.on('connection', socket => {
-  console.log("NEW CONNECTION")
-  socket.on('joinRoom', ({ username, room }) => {
+io.on("connection", socket => {
+  console.log("NEW CONNECTION");
+  socket.on("joinRoom", ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
 
     socket.join(user.room);
 
     // Welcome current user
-    socket.emit('message', formatMessage(chatterbox, 'Welcome to Chatterbox!'));
+    socket.emit("message", formatMessage(chatterbox, "Welcome to Chatterbox!"));
 
     // Broadcast when a user connects
     socket.broadcast
       .to(user.room)
       .emit(
-        'message',
+        "message",
         formatMessage(chatterbox, `${user.username} has joined the chat`)
       );
 
     // Listen for chatMessage
-    socket.on('chatMessage', msg => {
+    socket.on("chatMessage", msg => {
       const user = getCurrentUser(socket.id);
 
-      io.to(user.room).emit('message', formatMessage(user.username, msg));
+      io.to(user.room).emit("message", formatMessage(user.username, msg));
     });
 
   });
 
 });
 
-server.listen(port, function () {
-  console.log("listen to" + port);
-});
+// server.listen(PORT, function () {
+//   console.log("listen to" + PORT);
+// });
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {
