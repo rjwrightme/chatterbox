@@ -36,10 +36,19 @@ p {
   max-width: 550px;
 }
 
+.btn {
+  font-weight: 500;
+}
+
 .btn-main {
   background: #27AFEC;
   color: #fff;
   border: none;
+}
+
+.btn-outline-main {
+  border: 1px solid #27AFEC;
+  color: #10105B;
 }
 
 .btn-main:hover {
@@ -48,9 +57,17 @@ p {
   opacity: 1;
 }
 
+#navWrapper {
+  background: #fff;
+}
+
 .navbar {
   padding: 16px;
   margin-bottom: 15px;
+}
+
+#navbarNav li {
+  margin-left: 15px;
 }
 
 .img {

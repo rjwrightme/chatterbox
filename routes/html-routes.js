@@ -15,8 +15,14 @@ const router = express.Router();
 
 // index route loads view.html
 router.get("/", function (req, res) {
-  // res.sendFile(path.join(__dirname, "../public/chat.html"));
+  console.log("homepage requested: " + req);
   res.render("index", {});
+});
+
+// signup page
+router.get("/signup", function (req, res) {
+  console.log("signup requested: " + req);
+  res.render("signup", {});
 });
 
 // // cms route loads cms.html
@@ -36,4 +42,4 @@ router.get("/users", function (req, res) {
   res.render("index", {});
 });
 
-
+module.exports = router;
