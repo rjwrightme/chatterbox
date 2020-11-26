@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="/assets/css/chat.css" />
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="column left card border-light mb-3 contacts_card">
+            <div class="card-header">
+                <div>Users Online</div>
+                <p>{{username}}</p>
+
+                <input type="text" size="50" id="chat_string_id" />
+
+                <input type="button" value=" SEND  ! " onclick="send_message()" />
+
+            </div>
+            <div class="card-body contacts_body bg-light">
+                <div class="d-flex bd-highlight">
+                    <div class="img_cont">
+                        <img src="../assets/images/avatar01.png" class="rounded-circle user_img">
+                    </div>
+                    <div class="user_info">
+                        <span>Sarah</span>
+                    </div>
+                </div>
+                <div class="d-flex bd-highlight">
+                    <div class="img_cont">
+                        <img src="../assets/images/avatar02.png" class="rounded-circle user_img">
+                    </div>
+                    <div class="user_info">
+                        <span>Andrew</span>
+                    </div>
+                </div>
+
+                <div class="d-flex bd-highlight">
+                    <div class="img_cont">
+                        <img src="../assets/images/avatar03.png" class="rounded-circle user_img">
+                    </div>
+                    <div class="user_info">
+                        <span>RJ</span>
+                    </div>
+                </div>
+
+                <div class="d-flex bd-highlight">
+                    <div class="img_cont">
+                        <img src="../assets/images/avatar04.png" class="rounded-circle user_img">
+                    </div>
+                    <div class="user_info">
+                        <span>Annisa</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="column right">
+            <div class="card border-light mb-3">
+                <div class="card-header bg-transparent">
+                    <div>Conversation with Sarah</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <ul id="chat_messages_id">
+
+                    {{messages}}
+
+                </ul>
+            </div>
+
+            <div class="card-footer">
+                <div class="input-group">
+                    <textarea name="" class="form-control type_msg" placeholder="Type your message here..."></textarea>
+                    <button class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
