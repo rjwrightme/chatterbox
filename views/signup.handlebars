@@ -1,19 +1,18 @@
 <link rel="stylesheet" href="/assets/css/welcome.css" type="text/css" />
+<script src="/js/signup.js"></script>
 <div id="signupForm">
-    <form action="action_page.php" method="post">
-        <div class="heading">
-            <h1 class="mb-4 primary">Welcome!</h1>
-            <p>To create your account, please use the form below.</p>
-        </div>
-        <div class="imgcontainer">
-            <img src="/assets/images/avatar01.png" alt="Avatar" class="avatar" />
-        </div>
+    <div class="heading">
+        <h1 class="mb-4 primary">Welcome!</h1>
+        <p>To create your account, please use the form below.</p>
+    </div>
+    <div class="imgcontainer">
+        <img src="/assets/images/avatar01.png" alt="Avatar" class="avatar" />
+    </div>
 
-        <div class="container">
-            <input type="text" placeholder="email address" name="uname" required />
-            <input type="password" placeholder="pasword" name="psw" required />
-            <input type="password" placeholder="confirm pasword" name="psw2" required />
-            <button class="btn btn-main">Create Account</button>
-        </div>
+    <form class="signup container">
+        <input id="email-input" type="text" placeholder="email address" name="uname" required />
+        <input id="password-input" type="password" placeholder="password" name="psw" required />
+        <input id="password-input2" type="password" placeholder="confirm password" name="psw2" required />
+        <button class="btn btn-main">Create Account</button>
     </form>
 </div>
