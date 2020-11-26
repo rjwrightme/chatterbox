@@ -16,15 +16,9 @@ $(document).ready(function () {
   // Otherwise we log any errors
   function signUpUser(email, password, confirmPwd) {
     if (validatePassword(password, confirmPwd)) {
-      $.ajax({
-        type: "POST",
-        url: "/api/signup",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: {
-          email: email,
-          password: password,
-        },
+      $.post("/api/signup", {
+        email: email,
+        password: password,
       })
         .then(() => {
           window.location.replace("/chat");
