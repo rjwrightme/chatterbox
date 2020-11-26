@@ -20,94 +20,85 @@
 
 </head>
 
-<nav class="container navbar navbar-expand-md navbar-light bg-white">
-    <a class="navbar-brand" href="#">
-        <img src="../assets/images/chatterbox-logo.svg" alt="chatterbox logo" width="200" />
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <button class="btn btn-outline-primary rounded-pill">LOG OUT</button>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-
 <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white p-3 mb-1">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/chatterbox-logo.svg" alt="chatterbox logo" width="200" />
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary rounded-pill">Log Out</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
     <div class="container-fluid h-100">
-        <div class="row justify-content-center h-100">
-            <div class="col-md-4 col-xl-3 chat">
-                <div class="card mb-sm-3 mb-md-0 contacts_card">
-                    <h2>Users Online</h2>
-                    <div class="card-body contacts_body">
-                        <ui class="contacts">
-                            <li class="active">
-                                <div class="d-flex bd-highlight">
-                                    <div class="img_cont">
-                                        <img src="mike.png" class="rounded-circle user_img">
-                                    </div>
-                                    <div class="user_info">
-                                        <span>Sarah</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex bd-highlight">
-                                    <div class="img_cont">
-                                        <img src="boo.png" class="rounded-circle user_img">
-                                    </div>
-                                    <div class="user_info">
-                                        <span>Andrew</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex bd-highlight">
-                                    <div class="img_cont">
-                                        <img src="randy.png" class="rounded-circle user_img"> </div>
-                                    <div class="user_info">
-                                        <span>RJ</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex bd-highlight">
-                                    <div class="img_cont">
-                                        <img src="sulley.png" class="rounded-circle user_img">
-                                    </div>
-                                    <div class="user_info">
-                                        <span>Annisa</span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ui>
+        <div class="row h-100">
+            <div class="column left card border-light mb-3 contacts_card">
+                <div class="card-header">
+                    <div>Users Online</div>
+                </div>
+                <div class="card-body contacts_body bg-light">
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img src="../assets/images/avatar01.png" class="rounded-circle user_img">
+                        </div>
+                        <div class="user_info">
+                            <span>Sarah</span>
+                        </div>
                     </div>
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img src="../assets/images/avatar02.png" class="rounded-circle user_img">
+                        </div>
+                        <div class="user_info">
+                            <span>Andrew</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img src="../assets/images/avatar03.png" class="rounded-circle user_img">
+                        </div>
+                        <div class="user_info">
+                            <span>RJ</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img src="../assets/images/avatar04.png" class="rounded-circle user_img">
+                        </div>
+                        <div class="user_info">
+                            <span>Annisa</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-md-8 col-xl-6 chat">
-                <div class="card">
-                    <div class="card-header msg_head">
-                        <div class="d-flex bd-highlight">
-                            <div class="img_cont">
-                                <img src="mike.png" class="rounded-circle user_img">
-                            </div>
-                            <div class="user_info">
-                                <span>Conversation with Sarah</span>
-                            </div>
-                        </div>
+            <div class="column right">
+                <div class="card border-light mb-3">
+                    <div class="card-header bg-transparent">
+                        <div>Conversation with Sarah</div>
                     </div>
+                </div>
+                <div class="card-body">
+                </div>
 
-                    <div class="card-footer">
-                        <div class="input-group">
-                            <textarea name="" class="form-control type_msg"
-                                placeholder="Type your message here..."></textarea>
-                            <button class="btn btn-primary">Send</button>
-                        </div>
+                <div class="card-footer">
+                    <div class="input-group">
+                        <textarea name="" class="form-control type_msg"
+                            placeholder="Type your message here..."></textarea>
+                        <button class="btn btn-primary">Send</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
