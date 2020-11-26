@@ -1,8 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const http = require("http");
 const PORT = process.env.PORT || 3600;
 const session = require("express-session");
+
 const passport = require("./config/passport");
 const db = require("./models");
 
@@ -28,9 +30,9 @@ app.use(passport.session());
 
 // Requiring our routes
 const htmlRouter = require("./routes/html-routes.js");
-// require("./routes/chat-api-routes.js")(app);
-// require("./routes/login-routes.js")(app);
-// require("./routes/user-api-routes.js")(app);
+require("./routes/chat-api-routes.js")(app);
+require("./routes/login-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 
 app.use(htmlRouter);
 

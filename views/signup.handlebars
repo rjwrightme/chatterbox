@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/assets/css/welcome.css" type="text/css" />
 <div id="signupForm">
-    <form action="action_page.php" method="post">
+    <form class="signup">
         <div class="heading">
             <h1 class="mb-4 primary">Welcome!</h1>
             <p>To create your account, please use the form below.</p>
@@ -10,10 +10,10 @@
         </div>
 
         <div class="container">
-            <input type="text" placeholder="email address" name="uname" required />
-            <input type="password" placeholder="pasword" name="psw" required />
-            <input type="password" placeholder="confirm pasword" name="psw2" required />
-            <button class="btn btn-main">Create Account</button>
+            <input type="text" placeholder="email address" name="email" id="form_email" required />
+            <input type="password" placeholder="pasword" name="password" id="form_password" required />
+            <input type="password" placeholder="confirm pasword" name="password2" id="form_password2" required />
+            <button type="submit" class="btn btn-main">Create Account</button>
         </div>
     </form>
 </div>
@@ -21,4 +21,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
     integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="js/main.js"></script>
+<script src="js/signup.js"></script>
