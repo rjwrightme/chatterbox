@@ -7,6 +7,10 @@
 const express = require("express");
 
 const router = express.Router();
+
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 // Routes
 // =============================================================
 
@@ -25,15 +29,10 @@ router.get("/signup", function (req, res) {
   res.render("signup", {});
 });
 
-// // cms route loads cms.html
-// app.get("/cms", function (req, res) {
-//   res.sendFile(path.join(__dirname, "../public/cms.html"));
-// });
-
-// blog route loads chat.html
-router.get("/chat", function (req, res) {
-  // res.sendFile(path.join(__dirname, "../public/chat.html"));
-  res.render("index", {});
+// Here we've added our isAuthenticated middleware to this route.
+// If a user who is not logged in tries to access this route they will be redirected to the signup page
+router.get("/chat", isAuthenticated, function(req, res) {
+  res.render("chat", {});
 });
 
 // authors route loads user-manager.html
