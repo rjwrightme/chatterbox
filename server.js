@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -21,7 +22,7 @@ const io = require("socket.io")(server);
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
   })
