@@ -29,9 +29,15 @@ router.get("/signup", function (req, res) {
   res.render("signup", {});
 });
 
+// login page
+router.get("/login", function (req, res) {
+  console.log("login requested: " + req);
+  res.render("login", {});
+});
+
 // Here we've added our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/chat", isAuthenticated, function(req, res) {
+router.get("/chat", isAuthenticated, function (req, res) {
   res.render("chat", {});
 });
 
