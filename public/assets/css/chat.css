@@ -88,6 +88,8 @@ h3 {
   height: 40px;
   overflow-y: auto;
   resize: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 #conversation .btn-main {
@@ -136,18 +138,31 @@ h3 {
 
 }
 
-.chat-form-container {
-	padding: 20px 30px;
-	background-color: var(--dark-color-a);
-}
-
 .chat-form-container form {
-	display: flex;
+  display: flex;
 }
 
 .chat-form-container input[type='text'] {
-	font-size: 16px;
-	padding: 5px;
-	height: 40px;
-	flex: 1;
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  flex: 1;
+}
+
+.message {
+  background: #17AEEF;
+  border-radius: 15px;
+  padding: 5px 20px;
+  margin-top: 10px;
+  width: fit-content;
+  color: #fff;
+}
+
+.message p {
+  margin: 0;
+}
+
+p.meta {
+  font-size: 0.8em;
+  color: #c3e4f3;
 }
