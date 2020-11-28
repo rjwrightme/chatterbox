@@ -1,8 +1,8 @@
 var db = require("../models");
 const express = require("express");
-const router = express.Router();
+const userRouter = express.Router();
 
-router.get("/api/users", function (req, res) {
+userRouter.get("/api/users", function (req, res) {
   // Here we add an "include" property to our options in our findAll query
   // We set the value to an array of the models we want to include in a left outer join
   // In this case, just db.Chat
@@ -14,13 +14,11 @@ router.get("/api/users", function (req, res) {
 });
 
 // Route for getting some data about our user to be used client side
-router.get("/api/user_data", (req, res) => {
-  console.log("/api/user_data route hit!");
+userRouter.get("/api/user_data", (req, res) => {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     res.json({});
   } else {
-    console.log("We have a user! " + req.user);
     // Otherwise send back the user's email and id
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
@@ -28,17 +26,30 @@ router.get("/api/user_data", (req, res) => {
       name: req.user.name,
       email: req.user.email,
       createdAt: req.user.createdAt,
+      isOnline: req.user.isonline,
+      avatar: req.user.avatar,
     });
   }
 });
 
-router.post("/api/users", function (req, res) {
+userRouter.post("/api/users", function (req, res) {
   db.User.create(req.body).then(function (dbUser) {
     res.json(dbUser);
   });
 });
 
-router.delete("/api/users/:id", function (req, res) {
+// PUT route for updating posts
+userRouter.put("/api/users", function (req, res) {
+  db.User.update(req.body, {
+    where: {
+      id: req.body.id,
+    },
+  }).then(function (dbChat) {
+    res.json(dbChat);
+  });
+});
+
+userRouter.delete("/api/users/:id", function (req, res) {
   db.User.destroy({
     where: {
       id: req.params.id,
@@ -48,4 +59,4 @@ router.delete("/api/users/:id", function (req, res) {
   });
 });
 
-module.exports = router;
+module.exports = userRouter;

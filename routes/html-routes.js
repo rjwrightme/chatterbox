@@ -14,7 +14,6 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 // Routes
 // =============================================================
 
-
 // Each of the below routes just handles the HTML page that the user gets sent to.
 
 // index route loads view.html
@@ -42,9 +41,8 @@ router.get("/chat", isAuthenticated, function (req, res) {
 });
 
 // authors route loads user-manager.html
-router.get("/users", function (req, res) {
-  // res.sendFile(path.join(__dirname, "../public/user-manager.html"));
-  res.render("index", {});
+router.get("/account", isAuthenticated, function (req, res) {
+  res.render("account", {});
 });
 
 module.exports = router;
