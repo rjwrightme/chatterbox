@@ -65,8 +65,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-require("./controllers/chat_controller.js")(app);
-
 // Run when client connects
 io.on("connection", (socket) => {
   console.log("NEW CONNECTION");
@@ -125,17 +123,17 @@ io.on("connection", (socket) => {
   });
 });
 
-// server.listen(PORT, function () {
-//   console.log("listen to" + PORT);
-// });
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in our browser.",
-      PORT,
-      PORT
-    );
+  // app.listen(PORT, function () {
+  //   console.log(
+  //     "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in our browser.",
+  //     PORT,
+  //     PORT
+  //   );
+  // });
+  server.listen(PORT, function () {
+    console.log("listen to" + PORT);
   });
 });
