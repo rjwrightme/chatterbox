@@ -40,9 +40,14 @@ router.get("/chat", isAuthenticated, function (req, res) {
   res.render("chat", {});
 });
 
-// authors route loads user-manager.html
+// load account page
 router.get("/account", isAuthenticated, function (req, res) {
   res.render("account", {});
+});
+
+//user dashboard page
+router.get("/users", function (req, res) {
+  res.render("users", {});
 });
 
 module.exports = router;
