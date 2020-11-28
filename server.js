@@ -33,9 +33,6 @@ app.use(passport.session());
 // Requiring our routes
 const htmlRouter = require("./routes/html-routes.js");
 const loginRouter = require("./routes/login-routes.js");
-// require("./routes/chat-api-routes.js")(app);
-// require("./routes/login-routes.js")(app);
-// require("./routes/user-api-routes.js")(app);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -95,6 +92,13 @@ io.on("connection", (socket) => {
     const user = getCurrentUser(socket.id);
 
     io.to(user.room).emit("message", formatMessage(user.username, msg));
+    console.log("user.username: ", user.room);
+    db.Chat.create({
+      // eslint-disable-next-line camelcase
+      chat_message: msg,
+      username: user.username,
+      room: user.room
+    });
   });
 
   // Runs when client disconnects
