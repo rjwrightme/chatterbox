@@ -46,8 +46,20 @@ p {
   border: none;
 }
 
+.btn-main a {
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .btn-outline-main {
   border: 1px solid #27AFEC;
+  color: #10105B;
+}
+
+.btn-outline-main a {
   color: #10105B;
 }
 

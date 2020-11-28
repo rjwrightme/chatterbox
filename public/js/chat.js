@@ -5,7 +5,7 @@ const chatMessages = document.querySelector(".chat-messages");
 
 // Get username and room from URL
 const { username, room } = Qs.parse(location.search, {
-  ignoreQueryPrefix: true
+  ignoreQueryPrefix: true,
 });
 
 const socket = io();
@@ -18,7 +18,7 @@ function outputRoomName(room) {
 // Add users to DOM
 function outputUsers(users) {
   userList.innerHTML = "";
-  users.forEach(user => {
+  users.forEach((user) => {
     const li = document.createElement("li");
     li.innerText = user.username;
     userList.appendChild(li);
@@ -51,7 +51,7 @@ socket.on("roomUsers", ({ room, users }) => {
 });
 
 // Message from server
-socket.on("message", message => {
+socket.on("message", (message) => {
   console.log(message);
   outputMessage(message);
 
@@ -60,7 +60,7 @@ socket.on("message", message => {
 });
 
 // Message submit
-chatForm.addEventListener("submit", e => {
+chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   // Get message text
