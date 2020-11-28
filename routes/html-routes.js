@@ -41,10 +41,9 @@ router.get("/chat", isAuthenticated, function (req, res) {
   res.render("chat", {});
 });
 
-// authors route loads user-manager.html
+//user dashboard page
 router.get("/users", function (req, res) {
-  // res.sendFile(path.join(__dirname, "../public/user-manager.html"));
-  res.render("index", {});
+  res.render("users", {});
 });
 
 module.exports = router;
