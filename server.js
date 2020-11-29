@@ -36,7 +36,6 @@ const htmlRouter = require("./routes/html-routes.js");
 const loginRouter = require("./routes/login-routes.js");
 const userRouter = require("./routes/user-api-routes.js");
 // require("./routes/chat-api-routes.js")(app);
-// require("./routes/login-routes.js")(app);
 // require("./routes/user-api-routes.js")(app);
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -85,15 +84,35 @@ io.on("connection", (socket) => {
 
     socket.join(user.room);
 
+    //show chat history
+    var show_chat_history = db.Chat.findAll({
+      where: {
+        room: user.room
+      }
+    }).then(
+      function (model) {
+        for (item of model) {
+          console.log(item.chat_message);
+          var chat_date = new Date(item.createdAt);
+          var hour = chat_date.getHours();
+          var mins = chat_date.getMinutes();
+          var time_chat = hour + ":" + mins;
+          socket.emit("message", formatMessage(item.username + " ", time_chat, item.chat_message));
+        }
+      });
+    console.log("show_chat_history", show_chat_history);
+
+
     // Welcome current user
-    socket.emit("message", formatMessage(chatterbox, "Welcome to Chatterbox!"));
+    socket.emit("message", formatMessage(" ", " ", "Welcome to Chatterbox!"));
 
     // Broadcast when a user connects
+    var time_chat = get_current_time();
     socket.broadcast
       .to(user.room)
       .emit(
         "message",
-        formatMessage(chatterbox, `${user.username} has joined the chat`)
+        formatMessage(chatterbox, time_chat, `${user.username} has joined the chat`)
       );
 
     // Send users and room info
@@ -120,7 +139,7 @@ io.on("connection", (socket) => {
   // Runs when client disconnects
   socket.on("disconnect", () => {
     const user = userLeave(socket.id);
-
+    var time_chat = get_current_time();
     if (user) {
       io.to(user.room).emit(
         "message",
