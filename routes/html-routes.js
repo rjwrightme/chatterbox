@@ -36,8 +36,8 @@ router.get("/login", function (req, res) {
 
 // Here we've added our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/chat", isAuthenticated, function (req, res) {
-  res.render("chat", {});
+router.get("/users", isAuthenticated, function (req, res) {
+  res.render("users", {});
 });
 
 // load account page
@@ -45,9 +45,9 @@ router.get("/account", isAuthenticated, function (req, res) {
   res.render("account", {});
 });
 
-//user dashboard page
-router.get("/users", function (req, res) {
-  res.render("users", {});
+//Chat page
+router.get("/chat", isAuthenticated, function (req, res) {
+  res.render("chat", {});
 });
 
 module.exports = router;
