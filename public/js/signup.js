@@ -23,7 +23,7 @@ $(document).ready(function () {
         password: password,
       })
         .then(() => {
-          window.location.replace("/chat");
+          window.location.replace("/users");
           // If there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(handleLoginErr);
