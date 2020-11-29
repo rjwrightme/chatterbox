@@ -72,7 +72,7 @@ get_current_time = function () {
   var chat_date = new Date();
   var hour = chat_date.getHours();
   var mins = chat_date.getMinutes();
-  var time_chat = hour + ":" + mins;
+  var time_chat = hour + ":" + mins + " ";
   return time_chat;
 };
 
@@ -96,7 +96,7 @@ io.on("connection", (socket) => {
           var chat_date = new Date(item.createdAt);
           var hour = chat_date.getHours();
           var mins = chat_date.getMinutes();
-          var time_chat = hour + ":" + mins;
+          var time_chat = hour + ":" + mins + " ";
           socket.emit("message", formatMessage(item.username + " ", time_chat, item.chat_message));
         }
       });
