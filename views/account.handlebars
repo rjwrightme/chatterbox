@@ -4,7 +4,7 @@
     <p id="#alert">If you want to make any changes to your account, make sure to hit the Save Changes button when you're
         done.</p>
     <form class="editAccount container">
-        <h3>Your avatar:</h3>
+        {{!-- <h3>Your avatar:</h3>
         <div id="avatarSelection">
             <input type="radio" id="avatar01" name="avatar" value="avatar01">
             <label for="avatar01"><img src="/assets/images/avatar01.png" alt="avatar01"></label>
@@ -19,17 +19,19 @@
             <input type="radio" id="avatar06" name="avatar" value="avatar06">
             <label for="avatar06"><img src="/assets/images/avatar06.png" alt="avatar01"></label>
             <input type="radio" id="avatar07" name="avatar" value="avatar07">
-            <label for="avatar07"><img src="/assets/images/avatar07.png" alt="avatar01"></label>
-        </div>
-        <h3 class="mt-2">Your details:</h3>
-        <label for="name">Name</label>
-        <input id="name-input" type="text" placeholder="name" name="name" />
-        <label for="email">Email</label>
-        <input id="email-input" type="text" placeholder="email address" name="email" />
-        <h3 class="mt-4">Change Password:</h3>
-        <input id="password-input" type="password" placeholder="new password" name="psw" />
-        <input id="password-input2" type="password" placeholder="confirm new password" name="psw2" />
-        <button class="btn btn-main">Save Changes</button>
-    </form>
+            <label for="avatar07"><img src="/assets/images/avatar07.png" alt="avatar01"></label> --}}
+</div>
+<h3 class="mt-2">Your details:</h3>
+<label for="name">Name</label>
+<input id="name-input" type="text" placeholder="name" name="name" />
+<label for="email">Email</label>
+<input id="email-input" type="text" placeholder="email address" name="email" />
+<h3 class="mt-4">Change Password:</h3>
+<input id="password-input" type="password" placeholder="new password" name="psw" />
+<input id="password-input2" type="password" placeholder="confirm new password" name="psw2" />
+<button class="btn btn-main">Save Changes</button>
+<a href="/chat">Back to Chat</a>
+
+</form>
 </div>
 <script src="/js/account.js"></script>
