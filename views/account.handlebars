@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/assets/css/account.css">
+<div id="accountContainer" class="container">
+    <h1>G'Day <span id="userName"></span>,</h1>
+    <p id="#alert">If you want to make any changes to your account, make sure to hit the Save Changes button when you're
+        done.</p>
+    <form class="editAccount container">
+        <h3>Your avatar:</h3>
+        <div id="avatarSelection">
+            <input type="radio" id="avatar01" name="avatar" value="avatar01">
+            <label for="avatar01"><img src="/assets/images/avatar01.png" alt="avatar01"></label>
+            <input type="radio" id="avatar02" name="avatar" value="avatar02">
+            <label for="avatar02"><img src="/assets/images/avatar02.png" alt="avatar01"></label>
+            <input type="radio" id="avatar03" name="avatar" value="avatar03">
+            <label for="avatar03"><img src="/assets/images/avatar03.png" alt="avatar01"></label>
+            <input type="radio" id="avatar04" name="avatar" value="avatar04">
+            <label for="avatar04"><img src="/assets/images/avatar04.png" alt="avatar01"></label>
+            <input type="radio" id="avatar05" name="avatar" value="avatar05">
+            <label for="avatar05"><img src="/assets/images/avatar05.png" alt="avatar01"></label>
+            <input type="radio" id="avatar06" name="avatar" value="avatar06">
+            <label for="avatar06"><img src="/assets/images/avatar06.png" alt="avatar01"></label>
+            <input type="radio" id="avatar07" name="avatar" value="avatar07">
+            <label for="avatar07"><img src="/assets/images/avatar07.png" alt="avatar01"></label>
+        </div>
+        <h3 class="mt-2">Your details:</h3>
+        <label for="name">Name</label>
+        <input id="name-input" type="text" placeholder="name" name="name" />
+        <label for="email">Email</label>
+        <input id="email-input" type="text" placeholder="email address" name="email" />
+        <h3 class="mt-4">Change Password:</h3>
+        <input id="password-input" type="password" placeholder="new password" name="psw" />
+        <input id="password-input2" type="password" placeholder="confirm new password" name="psw2" />
+        <button class="btn btn-main">Save Changes</button>
+    </form>
+</div>
+<script src="/js/account.js"></script>

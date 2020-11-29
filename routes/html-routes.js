@@ -14,7 +14,6 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 // Routes
 // =============================================================
 
-
 // Each of the below routes just handles the HTML page that the user gets sent to.
 
 // index route loads view.html
@@ -39,6 +38,11 @@ router.get("/login", function (req, res) {
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
 router.get("/chat", isAuthenticated, function (req, res) {
   res.render("chat", {});
+});
+
+// load account page
+router.get("/account", isAuthenticated, function (req, res) {
+  res.render("account", {});
 });
 
 //user dashboard page

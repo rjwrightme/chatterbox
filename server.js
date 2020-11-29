@@ -33,6 +33,10 @@ app.use(passport.session());
 // Requiring our routes
 const htmlRouter = require("./routes/html-routes.js");
 const loginRouter = require("./routes/login-routes.js");
+const userRouter = require("./routes/user-api-routes.js");
+// require("./routes/chat-api-routes.js")(app);
+// require("./routes/login-routes.js")(app);
+// require("./routes/user-api-routes.js")(app);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -40,6 +44,7 @@ app.use(bodyParser.json());
 // Use our routes
 app.use(htmlRouter);
 app.use(loginRouter);
+app.use(userRouter);
 
 app.use(express.static("public"));
 

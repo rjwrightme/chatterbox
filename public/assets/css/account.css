@@ -1,0 +1,61 @@
+body {
+    background-color: #f2f2f2;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+    color: #3777b9;
+}
+
+p {
+    font-size: 16px;
+    color: gray;
+}
+
+#accountContainer {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.12);
+    max-width: 420px;
+    background: #fff;
+    margin: 40px auto 0;
+    padding: 35px;
+}
+
+.editAccount {
+    padding: 0;
+}
+
+#avatarSelection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#avatarSelection img {
+    width: 100px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+label img {
+    filter: grayscale(100%);
+    opacity: 0.7;
+}
+
+input[type="radio"]:checked+label img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 7px 20px;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+}
