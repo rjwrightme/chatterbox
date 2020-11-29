@@ -23,4 +23,5 @@ $.get("/api/user_data").then((data) => {
         </li>
         `;
   $("#rightNav").html(rightNav);
+  $("#username_room_select").val(data.name);
 });
