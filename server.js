@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 require("dotenv").config();
 const express = require("express");
 const app = express();
@@ -67,9 +68,18 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// eslint-disable-next-line camelcase
+get_current_time = function () {
+  var chat_date = new Date();
+  var hour = chat_date.getHours();
+  var mins = chat_date.getMinutes();
+  var time_chat = hour + ":" + mins;
+  return time_chat;
+};
+
 // Run when client connects
 io.on("connection", (socket) => {
-  console.log("NEW CONNECTION");
+  console.log("SOCKET IS CONNECTED");
   socket.on("joinRoom", ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
 
@@ -95,8 +105,9 @@ io.on("connection", (socket) => {
   // Listen for chatMessage
   socket.on("chatMessage", (msg) => {
     const user = getCurrentUser(socket.id);
-
-    io.to(user.room).emit("message", formatMessage(user.username, msg));
+    // eslint-disable-next-line camelcase
+    var time_chat = get_current_time();
+    io.to(user.room).emit("message", formatMessage(user.username, time_chat, msg));
     console.log("user.username: ", user.room);
     db.Chat.create({
       // eslint-disable-next-line camelcase
@@ -113,7 +124,7 @@ io.on("connection", (socket) => {
     if (user) {
       io.to(user.room).emit(
         "message",
-        formatMessage(chatterbox, `${user.username} has left the chat`)
+        formatMessage(chatterbox, time_chat, `${user.username} has left the chat`)
       );
 
       // Send users and room info
