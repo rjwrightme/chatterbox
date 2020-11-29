@@ -4,18 +4,14 @@
     <div class="join-container">
         <header class="join-header">
             <h1>Welcome</h1>
+            <h3>Pick A Room</h3>
         </header>
         <main class="join-main">
             <form action="chat">
                 <div class="form-row">
-
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="Enter username..." required />
-
+                    <input type="hidden" name="username" id="username_room_select" value="" required />
                 </div>
                 <div class="form-row">
-
-                    <label for="room">Room</label>
                     <select name="room" id="room">
                         <option value="JavaScript">JavaScript</option>
                         <option value="Python">Python</option>

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 require("dotenv").config();
 const express = require("express");
 const app = express();
@@ -35,7 +36,6 @@ const htmlRouter = require("./routes/html-routes.js");
 const loginRouter = require("./routes/login-routes.js");
 const userRouter = require("./routes/user-api-routes.js");
 // require("./routes/chat-api-routes.js")(app);
-// require("./routes/login-routes.js")(app);
 // require("./routes/user-api-routes.js")(app);
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -67,23 +67,52 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// eslint-disable-next-line camelcase
+get_current_time = function () {
+  var chat_date = new Date();
+  var hour = chat_date.getHours();
+  var mins = chat_date.getMinutes();
+  var time_chat = hour + ":" + mins + " ";
+  return time_chat;
+};
+
 // Run when client connects
 io.on("connection", (socket) => {
-  console.log("NEW CONNECTION");
+  console.log("SOCKET IS CONNECTED");
   socket.on("joinRoom", ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
 
     socket.join(user.room);
 
+    //show chat history
+    var show_chat_history = db.Chat.findAll({
+      where: {
+        room: user.room
+      }
+    }).then(
+      function (model) {
+        for (item of model) {
+          console.log(item.chat_message);
+          var chat_date = new Date(item.createdAt);
+          var hour = chat_date.getHours();
+          var mins = chat_date.getMinutes();
+          var time_chat = hour + ":" + mins + " ";
+          socket.emit("message", formatMessage(item.username + " ", time_chat, item.chat_message));
+        }
+      });
+    console.log("show_chat_history", show_chat_history);
+
+
     // Welcome current user
-    socket.emit("message", formatMessage(chatterbox, "Welcome to Chatterbox!"));
+    socket.emit("message", formatMessage(" ", " ", "Welcome to Chatterbox!"));
 
     // Broadcast when a user connects
+    var time_chat = get_current_time();
     socket.broadcast
       .to(user.room)
       .emit(
         "message",
-        formatMessage(chatterbox, `${user.username} has joined the chat`)
+        formatMessage(chatterbox, time_chat, `${user.username} has joined the chat`)
       );
 
     // Send users and room info
@@ -95,18 +124,26 @@ io.on("connection", (socket) => {
   // Listen for chatMessage
   socket.on("chatMessage", (msg) => {
     const user = getCurrentUser(socket.id);
-
-    io.to(user.room).emit("message", formatMessage(user.username, msg));
+    // eslint-disable-next-line camelcase
+    var time_chat = get_current_time();
+    io.to(user.room).emit("message", formatMessage(user.username, time_chat, msg));
+    console.log("user.username: ", user.room);
+    db.Chat.create({
+      // eslint-disable-next-line camelcase
+      chat_message: msg,
+      username: user.username,
+      room: user.room
+    });
   });
 
   // Runs when client disconnects
   socket.on("disconnect", () => {
     const user = userLeave(socket.id);
-
+    var time_chat = get_current_time();
     if (user) {
       io.to(user.room).emit(
         "message",
-        formatMessage(chatterbox, `${user.username} has left the chat`)
+        formatMessage(chatterbox, time_chat, `${user.username} has left the chat`)
       );
 
       // Send users and room info
