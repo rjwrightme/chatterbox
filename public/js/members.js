@@ -9,7 +9,7 @@ $.get("/api/user_data").then((data) => {
             </a>
         </li>
         <li class="btn btn-outline-main rounded-pill">
-            <a href="/chat">
+            <a href="/users">
             Change Room
             </a>
         </li>
