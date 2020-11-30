@@ -1,6 +1,6 @@
 # README for Chatterbox App
 
-![alt text](welcome.jpg)
+![welcome image](/welcome.jpg)
           
 ## Description 
               
