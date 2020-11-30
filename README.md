@@ -1,6 +1,6 @@
 # README for Chatterbox App
 
-![welcome image](/welcome.jpg)
+![welcome image](/welcome.JPG)
           
 ## Description 
               
@@ -85,15 +85,15 @@ The below directory structure highlights the “MVC” nature of this applicatio
 
 Once the app has been launched, the user is presented with the home screen, where the user has the option of logging in (if they are already a member) or signing up:
 
-![alt text](welcome.jpg)
+![welcome image](/welcome.JPG)
 
 If they login, they are presented with options for which chat room they would like to join:
 
-![alt text](chatrooms.jpg)
+![chatroom](/chatrooms.JPG)
 
 Members are able to chat to each other, in real-time, utilising the Socket.IO package. Code relevant to the Socket.IO package is included on the server (server.js) for the server-side functionality, and in the main.js client-side script:
 
-![alt text](chatting.jpg)
+![chatting](/chatting.JPG)
 
 Users can swap between rooms by clicking on the "change rooms" button at the top of the page. Once they are finished, they click the "log out" button, which takes them back to the welcome page. 
 
