@@ -9,6 +9,11 @@ $.get("/api/user_data").then((data) => {
             </a>
         </li>
         <li class="btn btn-outline-main rounded-pill">
+            <a href="/chat">
+            Change Room
+            </a>
+        </li>
+        <li class="btn btn-outline-main rounded-pill">
             <a href="/account">
             ${data.name}
             </a>
