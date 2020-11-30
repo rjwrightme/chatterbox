@@ -1,10 +1,10 @@
 # README for Chatterbox App
 
-![alt text](welcomescreen.jpg)
+![alt text](welcome.jpg)
           
 ## Description 
               
-This application is a chat application which allows users to sign up and chat with other users.  The app utilises an Model, View, Controller (MVC) structure and uses Socket.IO, MySQL, Sequelize, Express and Handlebars .
+This application is a chat application which allows users to sign up and chat with other users.  The app utilises an Model, View, Controller (MVC) structure and uses Socket.IO, MySQL, Sequelize, Express and Handlebars.
         
 ## Table of Contents
 * Title
@@ -18,7 +18,7 @@ This application is a chat application which allows users to sign up and chat wi
 
     
 ## Installation
-To install this application, the user runs the “server.js file in Node (or when deployed uses the app through the html interface). The server establishes the port on 3600 and requires express, which is used to run the server, drawing on the files in the “public directory”. The public directory holds the JS functions (xxx.js) and the CSS. The app is then based around the “Model, View, Controller” structure. The user.js, chat.js and index.js files are held in the model folder and they provide the models for user and chat, and construct the database queries. The “Views” part of the app consists of three handlebars files which provide the front-end templates. Finally, the “Controller” is represented by the routes files (api routes and html routes), which are responsible for creating all of the routes for the server to use, including get, post and put functions. The back-end database is a MySQL database (chatterbox). 
+To install this application, the user runs the “server.js" file in Node (or when deployed uses the app through the html interface). The server establishes the port on 8080 and requires express, which is used to run the server, drawing on the files in the “public directory”. The public directory holds the JS functions (account, login, main, members and signup), the html pages (chat, home, index, roomchat and welcome) and the CSS. The app is then based around the “Model, View, Controller” structure. The user.js, chat.js and index.js files are held in the model folder and they provide the models for user and chat, and construct the database queries. The “Views” part of the app consists of six handlebars files which provide the front-end templates. Finally, the “Controller” is represented by the routes files (api routes and html routes), which are responsible for creating all of the routes for the server to use, including get, post and put functions. The back-end database is a MySQL database (chatterbox). 
 
 The below directory structure highlights the “MVC” nature of this application:
 
@@ -38,7 +38,7 @@ The below directory structure highlights the “MVC” nature of this applicatio
 │   └── chat.js
 │   └── index.js
 │   └── user.js
-│   └── user_login.js
+│   
 │ 
 ├── node_modules
 │ 
@@ -71,7 +71,11 @@ The below directory structure highlights the “MVC” nature of this applicatio
 │
 └── views
     ├── index.handlebars
-    ├── public_chat.handlebars
+    ├── account.handlebars
+    ├── chat.handlebars
+    ├── login.handlebars
+    ├── signup.handlebars
+    ├── users.handlebars
     └── layouts
         └── main.handlebars
 ```
@@ -81,15 +85,20 @@ The below directory structure highlights the “MVC” nature of this applicatio
 
 Once the app has been launched, the user is presented with the home screen, where the user has the option of logging in (if they are already a member) or signing up:
 
-![alt text](homescreen.jpg)
+![alt text](welcome.jpg)
 
-If they login, they are directed to the chat page:
+If they login, they are presented with options for which chat room they would like to join:
 
-![alt text](chatscreen.jpg)
+![alt text](chatrooms.jpg)
 
-Members are able to chat to each other, in real-time, utilising the Socket.IO package. Code relevant to the Socket.IO package is included on the server (server.js) for the server-side functionality, and in the main.js client-side script. 
+Members are able to chat to each other, in real-time, utilising the Socket.IO package. Code relevant to the Socket.IO package is included on the server (server.js) for the server-side functionality, and in the main.js client-side script:
 
+![alt text](chatting.jpg)
 
+Users can swap between rooms by clicking on the "change rooms" button at the top of the page. Once they are finished, they click the "log out" button, which takes them back to the welcome page. 
+
+A video of the application and it's functionality can be found here:
+https://youtu.be/Cxrjnx5HzTc
 
 ## Credits
 This project was completed by RJ Wright, Sarah Brand, Annisa Purbandari and Andrew Middleton (Project Group 7). The project relied heavily on Socket.IO and the other node packages mentioned above. The group sought advice from our class instructors (Jack, Sandes and Ali), who we would like to thank for their assistance during our project sessions.
